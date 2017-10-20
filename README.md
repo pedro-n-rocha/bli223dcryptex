@@ -2,6 +2,13 @@
 
 :) 
 
+install dependencies
+
+```
+pip install hexdump 
+pip install pycrypto
+```
+
 ```
  >  python ./bli223dcryptex.py st_tg582ndb_r10.2.5.2_bm.bin 
 
