@@ -54,7 +54,7 @@ print 'decrypted : '
 hexdump.hexdump(decrypted)
 
 
-
+p = 0
 for x in range(0,len(decrypted)) : 
     if  decrypted[x] == b'\x00' :
           p = x +1
@@ -89,15 +89,15 @@ hexdump.hexdump(aeskey)
 #print s
 
 
-vletters = { 1 : '1' , 2 : '2' , 3 : '3' , 4 : '4' , 5 : '5' , 6 : '6' , 7 : '7' , 8 : '8' , 9 : '9' ,
+vletters = { 0: '0' , 1 : '1' , 2 : '2' , 3 : '3' , 4 : '4' , 5 : '5' , 6 : '6' , 7 : '7' , 8 : '8' , 9 : '9' ,
         10 : 'A' , 11 : 'B' , 12 : 'C' , 13 : 'D' , 14 : 'E' , 15 : 'F' , 16 : 'G' , 17 : 'H' , 18 : 'I' , 19 : 'J' ,
         20 : 'K' , 21 : 'L' , 22 : 'M' , 23 : 'N' , 24 : 'O' , 25 : 'P' , 26 : 'Q' , 27 : 'R' , 28 : 'S' , 29 : 'T' , 
         30 : 'U' , 31 : 'V' , 32 : 'W' , 33 : 'X' , 34 : 'Y' , 35 : 'Z'
         }           
 
 
-version = "%s.%s.%s.%s" % ( struct.unpack('B' , data[32:33])[0] ,  struct.unpack('B' , data[33:34])[0] ,  struct.unpack('B' , data[34:35])[0] , vletters[ struct.unpack('B' , data[35:36])[0]] ) 
-        
+version = "%s.%s.%s.%s" % ( struct.unpack('B' , data[32:33])[0] , vletters[ struct.unpack('B' , data[33:34])[0]] , vletters[ struct.unpack('B' , data[34:35])[0]] , vletters[ struct.unpack('B' , data[35:36])[0]] ) 
+
 #print version 
 #hardcoded lenghts ...   
 
